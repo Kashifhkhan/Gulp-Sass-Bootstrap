@@ -9,7 +9,6 @@ a {
 }
 
 .top-section {
-  @include element-padding(0, 60px);
   .topnav {
     @include element-margin(0, 50px);
     a {
@@ -75,6 +74,9 @@ a {
   .heading {
     @include element-margin(0, 30px);
     font-weight: 300;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.2rem;
+    }
   }
   .box-wrap {
     @include element-margin(15px, 15px);
@@ -92,31 +94,62 @@ a {
     .heading {
       @include element-margin(0, 5px);
     }
-    .content-box {
-      @include element-padding(0, 15px);
-      p:last-of-type {
-        @include element-margin(0, 5px);
-      }
+  }
+  .content-box {
+    @include element-padding(0, 15px);
+    p:last-of-type {
+      @include element-margin(0, 5px);
+    }
+    @include media-breakpoint-down(xl) {
+      @include element-padding(15px, 15px);
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
   }
 }
-@include media-breakpoint-down(xl) {
-  .middle-section .heading {
-    font-size: 1.2rem;
+.page-content {
+  @include media-breakpoint-down(sm) {
+    text-align: center;
   }
-  .middle-section .content-box {
-    padding: 15px;
+}
+  .top-section .topnav {
+    @include media-breakpoint-down(sm) {
+    @include element-margin(0, 20px);
+    }
+  }
+  .top-section .info-heading h2 {
+    @include media-breakpoint-down(sm) {
+    font-size: 1.4rem;
   }
 }
 
-@include media-breakpoint-down(sm) {
-  .page-content {
-    text-align: center;
-  }
-  .top-section .topnav {
-    @include element-margin(0, 20px);
-  }
-  .top-section .info-heading h2 {
-    font-size: 1.4rem;
-  }
+/*===========New style===========*/
+
+.me-container {
+  @include make-container();
+  @include make-container-max-widths();
+}
+.me-container-fluid {
+  @include make-container();
+}
+.me-nav {
+  @extend .nav;  
+}
+.me-nav-item {
+  @extend .nav-item;
+}
+.me-nav-link {
+  @extend .nav-link;
+}
+.me-text-center {
+  @extend .text-center;
+}
+.me-row {
+  @extend .row;
+}
+.me-col-md-6 {
+  @extend .col-md-6;
+}
+.me-col-lg {
+  @extend .col-lg;
 }

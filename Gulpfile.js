@@ -4,6 +4,7 @@ var prefix = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var sasslint = require("gulp-sass-lint");
+var classPrefix = require('gulp-class-prefix');
 
 
 gulp.task('sass', function () {
@@ -12,6 +13,12 @@ gulp.task('sass', function () {
 	.pipe(prefix("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
 	.pipe(gulp.dest('css/'))
 	.pipe(reload({stream:true}));
+});
+
+gulp.task('prefix', function() {
+	return gulp.src('node_modules/bootstrap/dist/css/bootstrap.css')
+	.pipe(classPrefix('me-'))
+	.pipe(gulp.dest('css/'));
 });
 
 gulp.task('sass-lint', function () {
