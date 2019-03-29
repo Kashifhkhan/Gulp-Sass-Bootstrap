@@ -1,0 +1,9 @@
+@mixin element-margin($top, $bottom) {
+  margin-bottom: $bottom;
+  margin-top: $top;
+}
+
+@mixin element-padding($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}

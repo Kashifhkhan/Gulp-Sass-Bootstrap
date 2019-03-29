@@ -1,0 +1,124 @@
+* {
+  @include element-margin(0, 0);
+  font-family: $theme-font;
+}
+
+a {
+  color: $link;
+  font-weight: bold;
+}
+
+.top-section {
+  .topnav {
+    @include element-margin(0, 50px);
+    a {
+      @include element-padding(.5rem, .5rem);
+      color: $dark-grey;
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+
+      &.active {
+        color: $black;
+        font-weight: 600;
+      }
+
+      &::after {
+        background: $dark-grey;
+        content: '';
+        height: 33%;
+        position: absolute;
+        right: 0;
+        top: 35%;
+        width: 1px;
+      }
+    }
+
+    li:last-child {
+      a::after {
+        display: none;
+      }
+    }
+  }
+  .info-heading {
+    @include element-margin(0, 15px);
+    @include element-padding(0, 40px);
+    border-bottom: 1px solid $black;
+    overflow: hidden;
+    padding-bottom: 5px;
+    position: relative;
+
+    &::after {
+      content: url('../images/print-icon.png');
+      cursor: pointer;
+      height: 35px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+    }
+    h2 {
+      font-weight: 300;
+    }
+    .detail-heading {
+      @include element-margin(40px, 20px);
+      font-weight: 300;
+    }
+  }
+}
+
+.middle-section {
+  background-color: $grey;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  .heading {
+    @include element-margin(0, 30px);
+    font-weight: 300;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.2rem;
+    }
+  }
+  .box-wrap {
+    @include element-margin(15px, 15px);
+    align-content: center;
+    background-color: $white;
+    display: flex;
+    img {
+      width: 100%;
+    }
+    .highlight {
+      @include element-margin(0, 5px);
+      color: $highlight;
+      font-weight: bold;
+    }
+    .heading {
+      @include element-margin(0, 5px);
+    }
+  }
+  .content-box {
+    @include element-padding(0, 15px);
+    p:last-of-type {
+      @include element-margin(0, 5px);
+    }
+    @include media-breakpoint-down(xl) {
+      @include element-padding(15px, 15px);
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+.page-content {
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+  }
+}
+  .top-section .topnav {
+    @include media-breakpoint-down(sm) {
+    @include element-margin(0, 20px);
+    }
+  }
+  .top-section .info-heading h2 {
+    @include media-breakpoint-down(sm) {
+    font-size: 1.4rem;
+  }
+}
