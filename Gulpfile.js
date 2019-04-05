@@ -12,7 +12,7 @@ var uglify = require('gulp-uglify');
 
 gulp.task('sass', function () {
 	return gulp.src('css/style.scss')
-	.pipe(sass({outputStyle: 'compressed'}, {errLogToConsole: true}))
+	.pipe(sass({outputStyle: 'uncompressed'}, {errLogToConsole: true}))
 	.pipe(prefix("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
 	.pipe(gulp.dest('css/'))
 	.pipe(reload({stream:true}));
